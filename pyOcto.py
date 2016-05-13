@@ -30,7 +30,7 @@ def setuplogging(loglevel, printtostdout, logfile):
         logger.addHandler(soh)
 
 
-def process_variables(settings, varset, opts, env_id):
+def process_variables(settings, varset, opts, mach_id):
 
     newVar = {u'Prompt': None,
               u'Name': opts.variablename.decode("utf-8"),
@@ -38,7 +38,7 @@ def process_variables(settings, varset, opts, env_id):
               u'IsSensitive': False,
               u'Value': opts.variablevalue.decode("utf-8"),
               u'Scope': {
-                  u'Environment': [env_id.decode("utf-8")]},
+                  u'Machine': [mach_id.decode("utf-8")]},
               }
     logging.debug("Created new var: " + str(newVar))
     varset.append(newVar)
@@ -173,7 +173,7 @@ def main(opts):
     logging.debug(mach_id)
     logging.debug(proj_id)
     fulljson, varset = get_variableset(s, proj_id)
-    newvarset = process_variables(s, varset, opts, env_id)
+    newvarset = process_variables(s, varset, opts, mach_id)
     fulljson['Variables'] = newvarset
     post_varset(s, fulljson, proj_id)
 
