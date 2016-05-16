@@ -165,7 +165,8 @@ def get_mach_id(settings):
     headers = {'x-Octopus-ApiKey': settings.api_key}
 
     r = requests.get(settings.url_machines, headers=headers)
-    mach_id = [x.get('Id') for x in r.json() if x.get('Name') == settings.machine_name]
+    machinename = settings.machine_name.upper()
+    mach_id = [x.get('Id') for x in r.json() if x.get('Name') == machinename]
     if len(mach_id) > 1:
         logging.error("Error: More than one machine matches name '%s'" % settings.environment_string)
         sys.exit(1)
