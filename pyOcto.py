@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 '''
 This is a template python script that has basic option parsing
 and logging framework set up already.
