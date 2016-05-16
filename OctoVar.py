@@ -1,6 +1,6 @@
 
 
-class OctoVar():
+class OctoVar:
     def __init__(self, varset = None):
         self.name = None
         self.value = None
@@ -51,7 +51,6 @@ class OctoVar():
         for attr in dir(self):
             if (    '__' not in attr and
                     'instancemethod' not in str(type(getattr(self, attr)))
-                    #attr not in self.ignore_attrs
                     ):
                 message += "-- %s = %s %s" % (attr, getattr(self, attr), '\n')
         return message

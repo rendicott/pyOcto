@@ -1,6 +1,8 @@
 import json
 import requests
+import logging
 from OctoVar import OctoVar
+
 
 def delete_mach_var_from_proj(settings, urls_proj, mach_id):
     headers = {'x-Octopus-ApiKey': settings.api_key}

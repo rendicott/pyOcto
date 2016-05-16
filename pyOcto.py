@@ -37,6 +37,7 @@ def setuplogging(loglevel, printtostdout, logfile):
         logger = logging.getLogger()
         logger.addHandler(soh)
 
+
 def process_opts(opts):
     attrs = []
     for attr in dir(opts):
