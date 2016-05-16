@@ -148,7 +148,7 @@ def get_proj_id(settings):
     headers = {'x-Octopus-ApiKey': settings.api_key}
 
     r = requests.get(settings.url_projects, headers=headers)
-    proj_id = [x.get('Id') for x in r.json() if x.get('Name') == settings.project_name]
+    proj_id = [x.get('Id') for x in r.json() if x.get('Name').lower() == settings.project_name.lower()]
     if len(proj_id) > 1:
         logging.error("Error: More than one machine matches name '%s'" % settings.project_name)
         sys.exit(1)
@@ -166,8 +166,7 @@ def get_mach_id(settings):
     headers = {'x-Octopus-ApiKey': settings.api_key}
 
     r = requests.get(settings.url_machines, headers=headers)
-    machinename = settings.machine_name.upper()
-    mach_id = [x.get('Id') for x in r.json() if x.get('Name') == machinename]
+    mach_id = [x.get('Id') for x in r.json() if x.get('Name').lower() == settings.machine_name.lower()]
     if len(mach_id) > 1:
         logging.error("Error: More than one machine matches name '%s'" % settings.environment_string)
         sys.exit(1)
@@ -185,7 +184,7 @@ def get_env_id(settings):
     headers = {'x-Octopus-ApiKey': settings.api_key}
 
     r = requests.get(settings.url_environments, headers=headers)
-    env_id = [x.get('Id') for x in r.json() if x.get('Name') == settings.environment_string]
+    env_id = [x.get('Id') for x in r.json() if x.get('Name').lower() == settings.environment_string.lower()]
     if len(env_id) > 1:
         logging.error("Error: More than one environment matches name '%s'" % settings.environment_string)
         sys.exit(1)

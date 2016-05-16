@@ -76,7 +76,7 @@ def main(opts):
                    'url_machines',
                    'url_projects',
                    'url_environments']
-    field_values = [opts.machinename.upper(),
+    field_values = [opts.machinename,
                     opts.environmentname,
                     opts.projectname,
                     opts.rolename,
@@ -148,7 +148,7 @@ if __name__ == '__main__':
                       help='This is the base url for the Octopus REST API. Default=None', default=None)
     parser.add_option('--projectname',
                       type='string',
-                      help='This is the name of the project in which to add machine variables. Default=None',
+                      help="This is the name of the project in which to add machine variables. Default=None",
                       default=None)
     parser.add_option('--environmentname',
                       type='string',
