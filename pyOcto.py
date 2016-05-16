@@ -76,7 +76,7 @@ def main(opts):
                    'url_machines',
                    'url_projects',
                    'url_environments']
-    field_values = [opts.machinename,
+    field_values = [opts.machinename.upper(),
                     opts.environmentname,
                     opts.projectname,
                     opts.rolename,
