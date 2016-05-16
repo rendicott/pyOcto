@@ -88,3 +88,4 @@ Options:
 * Ability to create and deploy releases.
 * Support for other scopes (e.g., Role, and Environment) besides just Machine.
 * Ability to export and import project variables to/from flat file.
+* Ability to delete Machine from Octopus
