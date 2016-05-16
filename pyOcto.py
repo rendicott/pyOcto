@@ -94,8 +94,8 @@ def main(opts):
     else:
         print("MACHINE NAME REQUIRED. EXITING")
         sys.exit(1)
-    if opts.projectname is None:
-        print("PROJECT NAME IS REQUIRED. EXITING")
+    if opts.projectname is None and opts.variablename:
+        print("PROJECT NAME IS REQUIRED WHEN SETTING VARIABLES. EXITING")
         sys.exit(1)
     if opts.environmentname:
         env_id = get_env_id(s)
