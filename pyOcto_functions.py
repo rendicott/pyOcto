@@ -2,6 +2,7 @@ import json
 import requests
 import logging
 import datetime
+import sys
 from OctoVar import OctoVar
 
 
@@ -172,6 +173,9 @@ def get_mach_id(settings):
         sys.exit(1)
     else:
         try:
+            if len(mach_id) == 0:
+                print("Machine ID for machine name '%s' not found. Exiting" % settings.machine_name)
+                sys.exit(0)
             mach_id = mach_id[0]
         except Exception as e:
             logging.critical("Exception getting machine Id: " + str(e))
